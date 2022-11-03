@@ -5,20 +5,16 @@ Borders()
 print("Tip Calculator")
 Borders()
 
-total_bill = input("What was the total bill ?\n")
-amount_of_people = input("How many people will split this bill ?\n")
-tip_amount = input("How much would you like to tip ? None, 5%, 10% or 15%\n")
+total_bill = float(input("What was the total bill ?\n"))
+amount_of_people = int(input("How many people will split this bill ?\n"))
+tip_amount = float(input("How much would you like to tip ? None, 5%, 10% or 15%\n"))
 
-total_bill_float = float(total_bill)
-amount_of_people_int = int(amount_of_people)
-tip_amount_int = int(tip_amount)
+tip_amount_float = float((total_bill * tip_amount) / 100)
+total_amount_bill_float = float(total_bill + tip_amount_float)
 
-tip_amount_float = float((total_bill_float * tip_amount_int) / 100)
-total_amount_bill_float = float(total_bill_float + tip_amount_float)
-
-if (amount_of_people_int == 0 or amount_of_people_int == 1):
+if (amount_of_people == 0 or amount_of_people == 1):
     print(f"Total bill is {round(total_amount_bill_float)}")
-elif (amount_of_people_int >= 1):
-    print(f"The total bill per person is {round(total_amount_bill_float / amount_of_people_int)}")
+elif (amount_of_people >= 1):
+    print(f"The total bill per person is {round(total_amount_bill_float / amount_of_people)}")
 
 
