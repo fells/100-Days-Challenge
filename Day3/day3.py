@@ -225,6 +225,40 @@
             EXERCISE 4
             Love calculator
 
+            def TrueName (name):
+                t = name.lower().count("t")
+                r = name.lower().count("r")
+                u = name.lower().count("u")
+                e = name.lower().count("e")
+                sum = t + r + u + e
+                return sum
+
+            def LoveName (name):
+                l = name.lower().count("l")
+                o = name.lower().count("o")
+                v = name.lower().count("v")
+                e = name.lower().count("e")
+                sum = l + o + v + e
+                return sum
+
+
+            print("Welcome to the love calculator")
+
+            name1 = input("What is your name ?\n")
+            name2 = input("What is their name ?\n")
+
+            combined_names = name1 + name2
+
+            total_sum_true = TrueName(combined_names)
+            total_sum_love = LoveName(combined_names)
+            love_score = str(total_sum_true) + str(total_sum_love)
+
+            if (love_score < "10") or (love_score > "90"):
+                print(f"Your love score is {love_score}, you go together like coke and mentos")
+            elif (love_score >= "40") and love_score <="50":
+                print(f"Your love score is {love_score}, you are alright together")
+            else:
+                print(f"Your love score is {love_score}")
 
 """
 
@@ -255,12 +289,12 @@ def Game ():
     Borders()
 
     print("Welcome to Treasure Island.\nYour mission is to find the treasure")
-    choice_1 = input(f"You're at a cross road. Where do you want to go ? Type 'left' or 'Right'\n")
+    choice_1 = input(f"You're at a cross road. Where do you want to go ? Type \"left\" or \"Right\"\n")
 
     if (choice_1.lower() == "left"):
-        choice_2 = input("You come to a lake. There is a island in the middle of the lake. Type 'wait' fot a boat. Type 'swim' to swim acroos.")
+        choice_2 = input("You\'ve come to a lake. There is a island in the middle of the lake. Type \"wait\" fot a boat. Type \"swim\" to swim acroos.")
         if (choice_2.lower() == "wait"):
-            choice_3 = input("A boat came for you to go to the island, but there are some pirates. Do you wish to go with them ? or fight ?")
+            choice_3 = input("A boat came for you to go to the island, but there are some pirates. Do you wish to \"go\" with them ? or \"fight\" ?")
             if (choice_3.lower() == "go"):
                 print("You won the game and got the gold 🪙")
 
