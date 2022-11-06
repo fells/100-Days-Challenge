@@ -33,14 +33,28 @@
 
             names.append("Lucas")
 
-
-
             EXERCISE 2
 
             Create a random bill payer program
 
-            names = ["Michel", "Fabio", "Rodrigo", "Amanda", "Julia", "Samantha"]
-            print(f"Today {random.choice(names)} will pay the bill")
+            user_input = input("Give me everybody's names, separated by a comma.\n").capitalize()
+            names = user_input.split(", ")
+            num_items = len(names)
+            random_item = random.randint(0, num_items - 1)
+            print(f"Today {names[random_item]} will pay the bill")
+
+            NESTED LIST
+
+            dirty_dozen = ["Strawberries", "Spinach", "Kale", "Nectarines", "Apples", "Grapes", "Peaches", "Cherries", "Pears", "Tomatoes", "Celery", "Potatoes"]
+
+            fruits = ["Strawberries", "Nectarines", "Apples", "Grapes", "Peaches", "Cherries", "Pears"]
+            vegetables = ["Spinach", "Kale", "Tomatoes", "Celery", "Potatoes"]
+
+            dirty_dozen = [fruits, vegetables]  --> NESTED LISTS
+
+            EXERCISE 3
+            Let's create a tick tack to game
+
 """
 
 # Final Project
@@ -79,18 +93,20 @@ def Game ():
 
     possible_output = [rock, paper, scissor]
     computer = random.choice(possible_output)
+    computer_index = possible_output.index(computer)
 
     if user_choice == 0:
+        user_choice = rock
         print(rock)
         print("Computer chose:")
         print(computer)
-        if user_choice > possible_output.index(rock):
+        if user_choice > computer:
             restart = input("You won, congrats 🏆. Do you want to play again ? \"Y\" or \"N\"")
             if restart.lower() == "y" or restart.lower() == "yes":
                 Game()
             else:
                 print("Until next time. 👋")
-        elif user_choice == possible_output.index(rock):
+        elif user_choice == computer:
             print("It's a draw, try again.")
             Game()
         else:
@@ -141,8 +157,12 @@ def Game ():
         print("Please select a valid option.")
         Game()
 
-Game()
 
+print("Let' play tick tack toe")
 
+row1 = ["", "", ""]
+row2 = ["", "", ""]
+row3 = ["", "", ""]
 
-
+map = [row1, row2, row3]
+print(f"{row1}\n{row2}\n{row3}")
