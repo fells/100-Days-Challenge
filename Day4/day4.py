@@ -55,6 +55,22 @@
             EXERCISE 3
             Let's create a tick tack to game
 
+            row1 = ["⬜", "⬜", "⬜"]
+            row2 = ["⬜", "⬜", "⬜"]
+            row3 = ["⬜", "⬜", "⬜"]
+
+            map = [row1, row2, row3]
+            print(f"{row1}\n{row2}\n{row3}")
+            position = input("Where do you want to put your treasure ?\n")
+
+
+            horizontal = int(position[0])
+            vertical = int(position[1])
+
+            map[vertical -1][horizontal -1] = "X"
+
+            print(f"{row1}\n{row2}\n{row3}")
+
 """
 
 # Final Project
@@ -92,15 +108,14 @@ def Game ():
     user_choice = int(input("What do you choose ? Type 0 for rock, 1 for Paper or 2 for Scissors.\n"))
 
     possible_output = [rock, paper, scissor]
-    computer = random.choice(possible_output)
-    computer_index = possible_output.index(computer)
+    computer = random.randint(0, 2)
+    computer_index = possible_output[computer]
 
     if user_choice == 0:
-        user_choice = rock
         print(rock)
         print("Computer chose:")
-        print(computer)
-        if user_choice > computer:
+        print(computer_index)
+        if user_choice == 0 and computer == 2:
             restart = input("You won, congrats 🏆. Do you want to play again ? \"Y\" or \"N\"")
             if restart.lower() == "y" or restart.lower() == "yes":
                 Game()
@@ -118,16 +133,16 @@ def Game ():
     elif user_choice == 1:
         print(paper)
         print("Computer chose:")
-        print(computer)
-        if user_choice == possible_output.index(paper):
-            print("It's a draw, try again.")
-            Game()
-        elif user_choice > possible_output.index(paper):
+        print(computer_index)
+        if user_choice == 1 and computer == 0:
             restart = input("You won, congrats 🏆. Do you want to play again ? \"Y\" or \"N\"")
             if restart.lower() == "y" or restart.lower() == "yes":
                 Game()
             else:
                 print("Until next time. 👋")
+        elif user_choice == computer:
+            print("It's a draw, try again.")
+            Game()
         else:
             restart = input("You lost 😟. Do you want to play again ? \"Y\" or \"N\"")
             if restart.lower() == "y" or restart.lower() == "yes":
@@ -137,16 +152,16 @@ def Game ():
     elif user_choice == 2:
         print(scissor)
         print("Computer chose:")
-        print(computer)
-        if user_choice == possible_output.index(scissor):
-            print("It's a draw, try again.")
-            Game()
-        elif user_choice > possible_output.index(scissor):
+        print(computer_index)
+        if user_choice == 2 and computer == 1:
             restart = input("You won, congrats 🏆. Do you want to play again ? \"Y\" or \"N\"")
             if restart.lower() == "y" or restart.lower() == "yes":
                 Game()
             else:
                 print("Until next time. 👋")
+        elif user_choice == computer:
+            print("It's a draw, try again.")
+            Game()
         else:
             restart = input("You lost 😟. Do you want to play again ? \"Y\" or \"N\"")
             if restart.lower() == "y" or restart.lower() == "yes":
@@ -157,12 +172,4 @@ def Game ():
         print("Please select a valid option.")
         Game()
 
-
-print("Let' play tick tack toe")
-
-row1 = ["", "", ""]
-row2 = ["", "", ""]
-row3 = ["", "", ""]
-
-map = [row1, row2, row3]
-print(f"{row1}\n{row2}\n{row3}")
+Game()
