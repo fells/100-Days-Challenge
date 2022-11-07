@@ -99,26 +99,43 @@
             Create a program that tells Fizz when it's divisible by 3, when the number is divisible by 5 print Buzz,
             when it's divisible by both 3 and 5 print FizzBuzz
 
+            for number in range (1, 101):
+            if number % 3 == 0 and number % 5 == 0:
+                print("FizzBuzz")
+            elif number % 3 == 0:
+                print("Fizz")
+            elif number % 5 == 0:
+                print("Buzz")
+            else:
+                print(number)
 """
-
 # FINAL PROJECT
 
-for number in range (1, 101):
-    if number % 3 == 0 and number % 5 == 0:
-        print("FizzBuzz")
-    elif number % 3 == 0:
-        print("Fizz")
-    elif number % 5 == 0:
-        print("Buzz")
-    else:
-        print(number)
+import random
+import string
 
-"""
 print("Welcome to the PyPassword generator!")
 letter_input = int(input("How many letters would you like in your password ?"))
 symbol_input = int(input("How many symbols would you like ?"))
 number_input = int(input("How many numbers would you like ?"))
 
-print("Here is your password: ")
+letters = list(string.ascii_lowercase)
+symbols = list(string.punctuation)
+numbers = list(string.digits)
 
-"""
+
+password_list = []
+for letter in range(letter_input):
+    password_list.append(random.choice(letters))
+
+for symbol in range(symbol_input):
+    password_list.append(random.choice(symbols))
+
+for number in range(number_input):
+    password_list.append(random.choice(numbers))
+
+random.shuffle(password_list)
+password = "".join(password_list)
+print(f"Here is your password: {password}")
+
+
