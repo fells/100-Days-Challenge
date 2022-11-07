@@ -49,9 +49,69 @@
 
 
             print(f"The average score is {scores}")
+
+            USING THE RANGE FUNCTION INSIDE A FOR LOOP
+
+            for number in range(1, 10):
+                print(number)
+
+            1
+            2
+            3
+            4
+            .
+            .
+            .
+            9
+
+            for number in range(1, 11, 3):  --> You can add a third variable that's going to be the steps that it counts
+                print(number)
+
+            1
+            4
+            7
+            10
+
+            user_input = input("Type a list of numbers.").split()
+
+            for n in range(0, len(user_input))
+                user_input[n] = int(user_input[n])
+
+
+            total = 0
+            for number in range (1, 101):
+                total += number
+
+            print(total)
+
+            EXERCISE 3
+
+            Create a program that calculates all of the even numbers from 1 to 100. Including 1 and 100
+
+            total = 0
+            for number in range(1, 101):
+                if number % 2 == 0:
+                 total += number
+
+            print(total)
+
+            EXERCISE 4
+            Create a program that tells Fizz when it's divisible by 3, when the number is divisible by 5 print Buzz,
+            when it's divisible by both 3 and 5 print FizzBuzz
+
 """
 
 # FINAL PROJECT
+
+for number in range (1, 101):
+    if number % 3 == 0 and number % 5 == 0:
+        print("FizzBuzz")
+    elif number % 3 == 0:
+        print("Fizz")
+    elif number % 5 == 0:
+        print("Buzz")
+    else:
+        print(number)
 
 """
 print("Welcome to the PyPassword generator!")
