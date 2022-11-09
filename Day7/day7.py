@@ -4,6 +4,7 @@
 
 # FINAL PROJECT
 import random
+import hangman_words
 
 def Game():
     stages = ['''
@@ -63,7 +64,7 @@ def Game():
     =========
     ''']
 
-    words = ["omelete", "bussign", "beekeeper", "car", "ship", "whale", "bird", "butterfly"]
+    words = hangman_words.word_list
     word_to_discover = random.choice(words)
     word_to_discover_list = []
     lenght_of_word = len(word_to_discover)

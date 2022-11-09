@@ -1,0 +1,1 @@
+word_list = ["omelete", "bussign", "beekeeper", "car", "ship", "whale", "bird", "butterfly"]
