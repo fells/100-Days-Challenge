@@ -70,6 +70,7 @@ def Game():
     lenght_of_word = len(word_to_discover)
     end_of_game = False
     lifes = 6
+    wrong_letters = []
 
     print(word_to_discover)
 
@@ -92,7 +93,9 @@ def Game():
         # This if statment is to check if the guessed letter is not inside the string
         if guess not in word_to_discover:
             lifes -= 1
+            wrong_letters.append(guess)
             print(stages[lifes])
+            print(f"Wrong gussed letter {wrong_letters}")
             if lifes == 0:
                 restart = input("GAME OVER you lost ☠. Do you want to restart ? Type 'Y' or 'N'").lower()
                 if restart == "y" or restart == "yes":
