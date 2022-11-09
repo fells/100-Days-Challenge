@@ -1,36 +1,111 @@
 """
-
+            How to break a complex problem dow into a Flow Chart
 """
 
 # FINAL PROJECT
 import random
 
-word_to_discover = list(input("Please write the word to be discovered: ").lower())
-word_to_discover_list = word_to_discover
+def Game():
+    stages = ['''
+      +---+
+      |   |
+      O   |
+     /|\  |
+     / \  |
+          |
+    =========
+    ''', '''
+      +---+
+      |   |
+      O   |
+     /|\  |
+     /    |
+          |
+    =========
+    ''', '''
+      +---+
+      |   |
+      O   |
+     /|\  |
+          |
+          |
+    =========
+    ''', '''
+      +---+
+      |   |
+      O   |
+     /|   |
+          |
+          |
+    =========''', '''
+      +---+
+      |   |
+      O   |
+      |   |
+          |
+          |
+    =========
+    ''', '''
+      +---+
+      |   |
+      O   |
+          |
+          |
+          |
+    =========
+    ''', '''
+      +---+
+      |   |
+          |
+          |
+          |
+          |
+    =========
+    ''']
 
-print(word_to_discover)
+    words = ["omelete", "bussign", "beekeeper", "car", "ship", "whale", "bird", "butterfly"]
+    word_to_discover = random.choice(words)
+    word_to_discover_list = []
+    lenght_of_word = len(word_to_discover)
+    end_of_game = False
+    lifes = 6
 
-lenght_of_word = len(word_to_discover)
-n = 0
+    print(word_to_discover)
 
-for letter in word_to_discover_list:
-    n += 1
-    word_to_discover_list[n - 1] = word_to_discover_list[n - 1] = "_"
+    # Replacing every letter inside the string with a "_" so the person has to guess the word in the game
+    for _ in range(lenght_of_word):
+        word_to_discover_list.append("_")
 
-print(word_to_discover_list)
+    print(word_to_discover_list)
 
-guess = input("Guess a letter: ").lower()
+    while end_of_game != True:
+        guess = input("Guess a letter: ").lower()
 
+        # Getting the index of the letter in the word
+        for position in range(lenght_of_word):
+            letter = word_to_discover[position]
+            if letter == guess:
+                word_to_discover_list[position] = letter
+        print(f"{''.join(word_to_discover_list)}")
 
-def FindLetter(lst):
-    if not lst:
-        return print("There's no letter like that")
-    elif lst[0] == guess:
-        lst.append(guess)
-    elif FindLetter(lst[1:]):
-        lst.append(guess)
+        # This if statment is to check if the guessed letter is not inside the string
+        if guess not in word_to_discover:
+            lifes -= 1
+            print(stages[lifes])
+            if lifes == 0:
+                restart = input("GAME OVER you lost ☠. Do you want to restart ? Type 'Y' or 'N'").lower()
+                if restart == "y" or restart == "yes":
+                    Game()
+                else:
+                    end_of_game = True
+                    print("Until next time. 👋")
 
-
-FindLetter(word_to_discover)
-
-print(word_to_discover_list)
+        # This is a if statment to check if there is no "_" anymore in the list
+        if "_" not in word_to_discover_list:
+            restart = input("Awesome, you won 🏆. Do you want to restart ? Type 'Y' or 'N'").lower()
+            if restart == "y" or restart == "yes":
+                Game()
+            else:
+                end_of_game = True
+                print("Until next time. 👋")
+Game()
