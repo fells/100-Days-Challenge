@@ -108,6 +108,7 @@ def Cypher():
         message = input("Type your message:\n").lower()
         shift_num = int(input("Type the shift number:\n"))
         pos_neg = input("Positive or negative the shift ?\n").lower()
+        shift_num = shift_num % 26
         Encode(message, shift_num, pos_neg)
         restart = input("Do you want to decypher something else? 'Y' or 'N'").lower()
         Restart(restart)
@@ -115,6 +116,7 @@ def Cypher():
         message = input("Type your message:\n").lower()
         shift_num = int(input("Type the shift number:\n"))
         pos_neg = input("Positive or negative the shift ?\n").lower()
+        shift_num = shift_num % 26
         Decode(message, shift_num, pos_neg)
         restart = input("Do you want to decypher something else? 'Y' or 'N'").lower()
         Restart(restart)
