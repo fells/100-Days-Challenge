@@ -107,8 +107,38 @@
 """
 
 # FINAL PROJECT
-import  logo
+import logo
+import os
 
 print(logo.gavel)
 
 print("Welcome to the secret auction program.")
+restart = True
+user_bid_dic = {}
+
+def UserBids(bidding_record):
+    value = 0
+    winner = ""
+
+    for bid in bidding_record:
+        if bidding_record[bid] > value:
+            value = bidding_record[bid]
+        if bidding_record[bid] == value:
+            winner = bid
+
+    print(f"The winner is {winner} who bet ${value}")
+
+
+while restart:
+    user_name = input("What's your name ?:\n").lower()
+    user_bid = int(input("What's your bid ?:\n"))
+    user_bid_dic[user_name] = user_bid
+    more_users = input("Are there any more bidders ?:\n").lower()
+
+    if more_users == "no" or more_users == "n":
+        restart = False
+        UserBids(user_bid_dic)
+    elif more_users == "yes" or more_users == "y":
+        print("")
+    else:
+        print("Please tell if there are more users.")
