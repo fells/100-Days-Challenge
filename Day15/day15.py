@@ -67,13 +67,6 @@ def is_transaction_successful(payment, price, user_choice):
         print(f"Sorry, not enough money")
         return False
 
-
-def make_coffee(user_choice, order_ingredients):
-    """Deduct the required ingredients from the resources"""
-    for item in order_ingredients:
-        resources[item] -= order_ingredients[item]
-    print(f"")
-
 def coffee_machine():
     make_more_coffee = False
     while not make_more_coffee:
