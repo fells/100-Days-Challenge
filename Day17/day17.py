@@ -40,9 +40,14 @@ from quiz_brain import QuizzBrain
 data_bank = []
 
 for question in data.question_data:
-    question_text = question['text']
-    answers_text = question['answer']
+    question_text = question["text"]
+    answers_text = question["answer"]
     new_question = Question(question_text, answers_text)
     data_bank.append(new_question)
 
-QuizzBrain(data_bank)
+quiz = QuizzBrain(data_bank)
+while quiz.still_has_questions():
+    quiz.next_question()
+
+print("You've completed the quiz")
+print(f"Your final score was: {quiz.score}/{quiz.question_number}")
