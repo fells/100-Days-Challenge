@@ -10,5 +10,15 @@ question_data = [
 {"text": "Google was originally called 'Backrub'.", "answer": "True"},
 {"text": "Buzz Aldrin's mother's maiden name was 'Moon'.", "answer": "True"},
 {"text": "No piece of square dry paper can be folded in half more than 7 times.", "answer": "False"},
-{"text": "A few ounces of chocolate can to kill a small dog.", "answer": "True"}
+{"text": "A few ounces of chocolate can to kill a small dog.", "answer": "True"},
+{"text": "The Tiananmen Square protests of 1989 were held in Hong Kong.","answer": "False"},
+{"text": "In 2016, the United Kingdom voted to stay in the EU.","answer": "False"},
+{"text": "In Sonic Adventure&quot;, you are able to transform into Super Sonic at will after completing the main story.","answer": "False"},
+{"text": "Denmark has a monarch.","answer": "True"},
+{"text": "There are no deserts in Europe.","answer": "True"},
+{"text": "Rabbits are rodents.","answer": "False"},
+{"text": "The song &quot;Stronger Than You&quot; is a single by Estelle, who played Garnet in Steven Universe.","answer": "True"},
+{"text": "Adolf Hitler was tried at the Nuremberg trials.","answer": "False"},
+{"text": "Kublai Khan is the grandchild of Genghis Khan?","answer": "True"},
+{"text": "In Resident Evil 4, the Chicago Typewriter has infinite ammo.","answer": "True"}
 ]
