@@ -37,5 +37,23 @@ while game_is_on:
     time.sleep(0.1)
     screen.update()
     ball.move()
+    
+    # Bouncing the ball to the left
+    if ball.ycor() > 280 or ball.ycor() < -280:
+        ball.bounce_y()
 
+    # Make the ball bounce from the player
+    if ball.distance(player2) < 30 and ball.xcor() > 420 or ball.distance(player1) < 30 and ball.xcor() < -420:
+        ball.bounce_x()
+
+    # Detect when Player 2 misses
+    if ball.xcor() > 480:
+        ball.reset()
+        scoreboard.increase_right_score()
+
+
+    # Detect when Player 1 misses
+    if ball.xcor() < -480:
+        ball.reset()
+        scoreboard.increase_left_score()
 screen.exitonclick()
