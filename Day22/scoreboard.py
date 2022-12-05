@@ -8,24 +8,21 @@ class Score(Turtle):
         self.r_score = 0
         self.color("white")
         self.penup()
-        self.goto(0, 260)
         self.hideturtle()
-        self.left_score()
-        self.right_score()
+        self.update_scoreboard()
 
-    def left_score(self):
-        self.write(f"Score: {self.l_score}", align="left", font=("Arial", 24, "normal",))
+    def update_scoreboard(self):
+        self.clear()
+        self.goto(-100, 260)
+        self.write(f"{self.l_score}", align="left", font=("Arial", 24, "normal",))
+        self.goto(100, 260)
+        self.write(f"{self.r_score}", align="right", font=("Arial", 24, "normal",))
 
-    def right_score(self):
-        self.write(f"Score: {self.r_score}", align="right", font=("Arial", 24, "normal",))
 
     def increase_left_score(self):
-        self.l_score += 1
-        self.clear()
-        self.left_score()
-
+        self.r_score += 1
+        self.update_scoreboard()
 
     def increase_right_score(self):
-        self.r_score += 1
-        self.clear()
-        self.right_score()
+        self.l_score += 1
+        self.update_scoreboard()

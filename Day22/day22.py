@@ -26,15 +26,15 @@ player1 = Player((-460, 0))
 player2 = Player((460, 0))
 ball = Ball()
 scoreboard = Score()
-screen.onkey(key="Up", fun=player1.up)
-screen.onkey(key="Down", fun=player1.down)
-screen.onkey(key="w", fun=player2.up)
-screen.onkey(key="s", fun=player2.down)
+screen.onkeypress(key="Up", fun=player1.up)
+screen.onkeypress(key="Down", fun=player1.down)
+screen.onkeypress(key="w", fun=player2.up)
+screen.onkeypress(key="s", fun=player2.down)
 
 game_is_on = True
 
 while game_is_on:
-    time.sleep(0.1)
+    time.sleep(ball.move_speed)
     screen.update()
     ball.move()
     
