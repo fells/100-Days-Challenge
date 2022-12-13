@@ -1,5 +1,5 @@
-letter,nato
-A,Alpha
+letter,code
+A,Alfa
 B,Bravo
 C,Charlie
 D,Delta
@@ -8,7 +8,7 @@ F,Foxtrot
 G,Golf
 H,Hotel
 I,India
-J,Juliette
+J,Juliet
 K,Kilo
 L,Lima
 M,Mike
@@ -22,6 +22,6 @@ T,Tango
 U,Uniform
 V,Victor
 W,Whiskey
-X,X-Ray
+X,X-ray
 Y,Yankee
 Z,Zulu

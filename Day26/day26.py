@@ -49,13 +49,61 @@
         shared_numbers = [n for n in numbers_1 if n in numbers_2]
         print(shared_numbers)
 
+
+        DICTIONARY COMPREHENSIONS
+        new_dict = {new_key:new_value for item in list}
+        new_dict = {new_key:new_value for (key, value) in dict.items()}
+        new_dict = {new_key:new_value for (key, value) in dict.items() if test}
+
+        EXERCISE 1
+        You are given a sentence, you have to inform the amount of letters in each word of the sentence and place in a
+        new dictionary
+
+        sentence = "Hello there everyone, my name is Michel"
+
+        result = {word:len(word) for word in sentence.split()}
+
+        print(result)
+
+        EXERCISE 2
+        Convert the weather dictionary degrees celsius into fahrenheit
+
+        weather = {
+            "Monday": 12,
+            "Tuesday": 14,
+            "Wednesday": 15,
+            "Thursday": 14,
+            "Friday": 21,
+            "Saturday": 22,
+            "Sunday": 24,
+        }
+
+        result = {day: {(temp * 9 / 5) + 32} for (day, temp) in weather.items()}
+
+        print(result)
+
+        EXERCISE 3
+
+        students = {
+            "student": ["Angela", "Michel", "Fabio"],
+            "scores": [95, 80, 87]
+        }
+
+        new_df = pandas.DataFrame(students)
+
+        # Loop through the rows of a data frame
+        for (index, row) in new_df.iterrows():
+            print(row)
+
+
 """
 
 # Final Project
 # Create a program where you type in a word, and it will return with watch letter in NATO alphabet
 import pandas
-
 data = pandas.read_csv("nato_alphabet.csv")
+nato_word = {row.letter: row.code for (index, row) in data.iterrows()}
+
 user_input = input("Type in a word: ").upper()
-nato_list = [letter for letter in user_input if letter in data.letter]
-print(nato_list)
+nato_input = [nato_word[letter] for letter in user_input]
+print(nato_input)
