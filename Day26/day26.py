@@ -11,7 +11,7 @@
 
         LIST COMPREHENSION
 
-        new_list = [new_item for item in list]
+        new_list = [new_item for item in list]  --> This is changing the way we create are loops and shortening
 
         Same code but with List Comprehension
 
@@ -54,8 +54,8 @@
 # Final Project
 # Create a program where you type in a word, and it will return with watch letter in NATO alphabet
 import pandas
-#
-# data = pandas.read_csv("nato_alphabet.csv")
-# user_input = input("Type in a word: ").upper()
-# nato_list = [letter for letter in user_input if letter in data.letter]
-# print(nato_list)
+
+data = pandas.read_csv("nato_alphabet.csv")
+user_input = input("Type in a word: ").upper()
+nato_list = [letter for letter in user_input if letter in data.letter]
+print(nato_list)
