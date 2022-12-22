@@ -1,7 +1,3 @@
-"""
-
-"""
-
 # Final Project
 # Build a Pomodoro App
 from tkinter import *
@@ -14,15 +10,20 @@ RED = "#e7305b"
 GREEN = "#9bdeac"
 YELLOW = "#f7f5dd"
 FONT_NAME = "Courier"
-WORK_MIN = 1
+WORK_MIN = 25
 SHORT_BREAK_MIN = 5
 LONG_BREAK_MIN = 20
 reps = 0
+timer = None
 
 # Timer Reset
 def reset():
+    screen.after_cancel(timer)
     label.config(text="Timer", fg=GREEN)
-    canvas.config(timer_text())
+    canvas.itemconfig(timer_text, text="00:00")
+    check_mark.config(text="")
+    global reps
+    reps = 0
 # Timer Mechanism
 
 def start_timer():
@@ -51,9 +52,15 @@ def countdow(count):
 
     canvas.itemconfig(timer_text, text=f"{count_min}:{count_sec}")
     if count > 0:
-        screen.after(1000, countdow, count - 1)
+        global timer
+        timer = screen.after(1000, countdow, count - 1)
     else:
         start_timer()
+        marks = ""
+        work_session = math.floor(reps / 2)
+        for _ in range(work_session):
+            marks += "✓"
+        check_mark.config(text=marks)
 
 # UI Setup
 
@@ -72,14 +79,14 @@ canvas.grid(column=1, row=1)
 label = Label(text="Timer", font=(FONT_NAME, 50, "normal"), bg=YELLOW, fg=GREEN)
 label.grid(column=1, row=0)
 
-check_mark = Label(text="✓", font=(FONT_NAME, 15, "normal"), bg=YELLOW, fg=GREEN)
+check_mark = Label(text="", font=(FONT_NAME, 15, "normal"), bg=YELLOW, fg=GREEN)
 check_mark.grid(column=1, row=3)
 # BUTTONS
 
 start = Button(text="Start", command=start_timer)
 start.grid(column=0, row=2)
 
-reset = Button(text="Reset")
+reset = Button(text="Reset", command=reset)
 reset.grid(column=2, row=2)
 
 screen.mainloop()
