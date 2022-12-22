@@ -1,20 +1,30 @@
-"""
-
-"""
-
 # Final Project
 # Creating a Password generator with Tkinter
 from tkinter import *
 import string
-# ---------------------------- PASSWORD GENERATOR ------------------------------- #
-lower_alphabet = list(string.ascii_lowercase)
-upper_alphabet = list(string.ascii_uppercase)
-numbers = list(string.digits)
-symbols = list(string.punctuation)
+import random
 
+
+# ---------------------------- PASSWORD GENERATOR ------------------------------- #
+def generate_password():
+    lower_alphabet = list(string.ascii_lowercase)
+    upper_alphabet = list(string.ascii_uppercase)
+    numbers = list(string.digits)
+    symbols = list(string.punctuation)
+    all_characters = list(lower_alphabet + upper_alphabet + numbers + symbols)
+    random_num = random.randint(8, 20)
+    password_list = []
+
+    for char in range(random_num):
+        password_list.append(random.choice(all_characters))
+
+    password_string = "".join(password_list)
+
+    print(password_string)
 
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
+
 
 # ---------------------------- UI SETUP ------------------------------- #
 
@@ -27,7 +37,6 @@ photo = PhotoImage(file="logo.png")
 canvas = Canvas(width=200, height=189)
 canvas.create_image(100, 95, image=photo)
 canvas.grid(column=1, row=0)
-
 
 # Labels
 label_website = Label(text="Website:")
@@ -42,7 +51,6 @@ label_website.grid(column=0, row=1)
 label_email_user.grid(column=0, row=2)
 label_password.grid(column=0, row=3)
 
-
 # Entrys
 
 entry_website = Entry(width=40)
@@ -53,10 +61,9 @@ entry_website.grid(column=1, row=1)
 entry_email_user.grid(column=1, row=2)
 entry_password.grid(column=1, row=3, rowspan=2)
 
-
 # Buttons
 
-btn_generate_password = Button(text="Generate Password", width=20)
+btn_generate_password = Button(text="Generate Password", width=20, command=generate_password)
 btn_add = Button(text="Add", width=80)
 
 btn_generate_password.grid(column=1, row=3)
