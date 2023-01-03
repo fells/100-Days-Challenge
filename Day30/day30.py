@@ -152,6 +152,8 @@
 
         UPDATE
         json.update()
+
+        Finished day 30
 """
 
 # Final Project
