@@ -141,6 +141,17 @@
 
         generate_phonetic()
 
+
+        JSON LIB
+
+        WRITE
+        json.dump()
+
+        READ
+        json.load()
+
+        UPDATE
+        json.update()
 """
 
 # Final Project
