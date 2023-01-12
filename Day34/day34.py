@@ -4,24 +4,25 @@
 
 # Final Project
 # Create a app where we get the questions from a API and have to answer correctly
-import requests
-import random
-import json
-import tkinter as tk
+from data import question_data
+from quiz_brain import QuizBrain
+from question_model import Question
+from ui import QuizInterface
 
-parameters = {
-    "amount": 30,
-    "category": 18,
-    "type": "boolean",
-}
+question_bank = []
+for question in question_data:
+    question_text = question["question"]
+    question_answer = question["correct_answer"]
+    new_question = Question(question_text, question_answer)
+    question_bank.append(new_question)
 
-questions_api = requests.get("https://opentdb.com/api.php", params=parameters)
-questions_api.raise_for_status()
-data = questions_api.json()
-random_num = random.randint(0, len(data["results"]) - 1)
-random_question = data["results"][random_num]
-question = random_question["question"]
-correct_answer = random_question["correct_answer"]
-print(question)
-print(correct_answer)
+
+quiz = QuizBrain(question_bank)
+quiz_ui = QuizInterface(quiz)
+
+while quiz.still_has_questions():
+    quiz.next_question()
+
+print("You have completed the quiz")
+print(f"Your final score was: {quiz.score}/{quiz.question_number}")
 
