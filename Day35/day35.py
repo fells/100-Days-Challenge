@@ -8,9 +8,9 @@ import requests
 import json
 
 parameters = {
-    "lat": -26.893890, # --> Personal Latitude
-    "lon": -49.085560, # --> Personal Longitude
-    "appid": 'd448e480f7793f45feb24805b78bd8b9', # --> Personal OpenWeather API Key
+    "lat": , # --> Personal Latitude
+    "lon": , # --> Personal Longitude
+    "appid": '', # --> Personal OpenWeather API Key
     "units": 'metric',
     "exclude": "current,minutely,daily"
 }
