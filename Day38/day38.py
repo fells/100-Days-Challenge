@@ -16,7 +16,7 @@ HEIGHT_CM = ""  # --> Add your Height
 AGE = "" # --> Add your Age
 
 endpoint = "https://trackapi.nutritionix.com/v2/natural/exercise"
-sheets_endpoint = "https://api.sheety.co/8beeb65042b0ad4a62a0717abae0bf74/workoutTracker/workouts"
+sheets_endpoint = "" # --> Add your Sheety API endpoint
 
 exercise_text = input("Tell me which exercises you did: ")
 
