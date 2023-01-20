@@ -7,19 +7,18 @@
 import requests
 import json
 
-APP_ID = "2f00b733"
-API_KEY = "149cb52b5aa0def4aeb575f373cfbf9e"
+APP_ID = ""  # --> Add your Nutrition API ID
+API_KEY = ""  # --> Add your Nutrition API Key
 
-GENDER = "male"
-WEIGHT_KG = "85"
-HEIGHT_CM = "180"
-AGE = "26"
+GENDER = "" # --> Add your Gender
+WEIGHT_KG = ""  # --> Add your Weight
+HEIGHT_CM = ""  # --> Add your Height
+AGE = "" # --> Add your Age
 
 endpoint = "https://trackapi.nutritionix.com/v2/natural/exercise"
 sheets_endpoint = "https://api.sheety.co/8beeb65042b0ad4a62a0717abae0bf74/workoutTracker/workouts"
 
 exercise_text = input("Tell me which exercises you did: ")
-
 
 # Creating a connection with the Nutrition API andit's parameters
 
@@ -42,7 +41,6 @@ nutrition_json = json.loads(nutrion_data.text)
 exercise_duration = nutrition_json["exercises"][0]["duration_min"]
 exercise_name = nutrition_json["exercises"][0]["name"]
 print(f"{exercise_name}\n{exercise_duration}")
-
 
 # Creating a connection with the Sheety API
 
