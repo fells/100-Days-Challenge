@@ -2,7 +2,7 @@ import requests
 from flight_data import FlightData
 
 endpoint = "https://tequila-api.kiwi.com"
-FLIGHT_KEY = "moCUxbENcirC7vlzu6zeKHcnI8Wq5V08"
+FLIGHT_KEY = ""   # Add in your Kiwi's API Key
 
 class FlightSearch:
     #This class is responsible for talking to the Flight Search API.

@@ -1,9 +1,9 @@
 from twilio.rest import Client
 
-TWILIO_SID = 'AC839b8e9a2ef65ed70dd92bd024d8332c'
-TWILIO_AUTH_TOKEN = '0a392c84ad5ac38724796e31791681d8'
-TWILIO_VIRTUAL_NUMBER = "+19302057371"
-TWILIO_VERIFIED_NUMBER = "+5521981289048"
+TWILIO_SID = ''    # Add in your Twilio's SID
+TWILIO_AUTH_TOKEN = ''  # Add in your Twilio's Auth token
+TWILIO_VIRTUAL_NUMBER = ""    # Add in your Twilio's virtual number
+TWILIO_VERIFIED_NUMBER = ""    # Add in your phone number to send to
 
 
 class NotificationManager:
